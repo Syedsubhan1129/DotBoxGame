@@ -2,6 +2,12 @@
 
 A modern, responsive implementation of the classic Dots and Boxes game using semantic HTML, modern CSS (Grid/Flexbox), and vanilla JavaScript.
 
+## 🖼️ Preview
+ ![Home Preview](assets/home.png)
+ ![Game Preview](assets/game.png)
+
+
+
 ## Features
 - Player vs Computer and Player vs Player modes
 - Grid sizes: 4×4, 5×5, 6×6, 7×7 (dots per side)
