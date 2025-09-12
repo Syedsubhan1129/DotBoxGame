@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dots & Boxes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="app">
+        <header class="app__header">
+            <h1 class="brand">Dots <span>&</span> Boxes</h1>
+        </header>
+
+        <main class="app__main">
+            <!-- Setup Screen -->
+            <section id="setup" class="card setup visible">
+                <h2>Start a New Game</h2>
+                <form id="setupForm" class="setup__form" autocomplete="off">
+                    <div class="form__row">
+                        <label for="mode">Mode</label>
+                        <div class="segmented">
+                            <input type="radio" id="mode_pvc" name="mode" value="pvc" checked />
+                            <label for="mode_pvc">Player vs Computer</label>
+                            <input type="radio" id="mode_pvp" name="mode" value="pvp" />
+                            <label for="mode_pvp">Player vs Player</label>
+                        </div>
+                    </div>
+
+                    <div class="form__row">
+                        <label for="size">Grid Size</label>
+                        <select id="size" required>
+                            <option value="4">4 × 4</option>
+                            <option value="5">5 × 5</option>
+                            <option value="6">6 × 6</option>
+                            <option value="7">7 × 7</option>
+                        </select>
+                    </div>
+
+                    <div class="players">
+                        <div class="player-input">
+                            <div class="swatch swatch--p0" aria-hidden="true"></div>
+                            <label for="p1Letter">Player 1 Letter</label>
+                            <input id="p1Letter" type="text" maxlength="2" placeholder="A" value="A" />
+                        </div>
+                        <div class="player-input" id="player2Input">
+                            <div class="swatch swatch--p1" aria-hidden="true"></div>
+                            <label for="p2Letter">Player 2 Letter</label>
+                            <input id="p2Letter" type="text" maxlength="2" placeholder="B" value="B" />
+                        </div>
+                    </div>
+
+                    <button class="btn btn--primary" type="submit">Start Game</button>
+                </form>
+            </section>
+
+            <!-- Game Screen -->
+            <section id="game" class="game card hidden">
+                <div class="game__topbar">
+                    <div class="scoreboard">
+                        <div class="score score--p0">
+                            <div class="dot dot--p0"></div>
+                            <span id="p1Name">Player 1</span>
+                            <strong id="p1Score">0</strong>
+                        </div>
+                        <div class="score score--p1">
+                            <div class="dot dot--p1"></div>
+                            <span id="p2Name">Player 2</span>
+                            <strong id="p2Score">0</strong>
+                        </div>
+                    </div>
+
+                    <div class="turn" id="turnIndicator">Player 1's turn</div>
+
+                    <div class="game__actions">
+                        <button id="restartBtn" class="btn btn--ghost" type="button">Restart</button>
+                        <button id="newGameBtn" class="btn btn--soft" type="button">New Game</button>
+                    </div>
+                </div>
+
+                <div id="boardWrapper" class="board__wrapper">
+                    <div id="board" class="board" role="grid" aria-label="Dots and Boxes board"></div>
+                </div>
+
+                <div id="result" class="result hidden" role="dialog" aria-live="polite">
+                    <div class="result__content">
+                        <h3 id="resultText">Game Over</h3>
+                        <div class="result__actions">
+                            <button id="playAgainBtn" class="btn btn--primary" type="button">Play Again</button>
+                            <button id="changeSetupBtn" class="btn btn--soft" type="button">Change Setup</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <noscript>This game requires JavaScript enabled.</noscript>
+</body>
+</html>
+
+
