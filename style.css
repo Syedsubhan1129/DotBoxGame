@@ -122,6 +122,8 @@ select::-ms-expand { display: none; }
   gap: var(--board-gap);
   touch-action: manipulation;
   justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 /* Grid items */
@@ -177,13 +179,23 @@ select::-ms-expand { display: none; }
   .scoreboard { justify-content: center; }
   .turn { justify-self: center; }
   .game__actions { justify-content: center; }
-  .board__wrapper { padding: 10px; width: 100%; }
+  /* Make the board area a full-bleed square equal to device width */
+  .board__wrapper {
+    padding: 0;
+    width: 100vw;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    border-radius: 0;
+  }
   /* Scale up board pieces for small screens */
   .board { 
     --box-size: clamp(44px, 14vw, 72px);
     --board-gap: clamp(6px, 2.8vw, 12px);
     --dot-size: clamp(12px, 2.8vw, 16px);
     --edge-thick: clamp(10px, 2.8vw, 14px);
+    place-content: center;
   }
 }
 
